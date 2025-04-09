@@ -1,10 +1,11 @@
 {
-    "name": "Package.Runtime",
-    "references": [],
-    "includePlatforms": [],
-    "excludePlatforms": [
-        "Editor"
+    "name": "Lando.Transitions.Editor",
+    "rootNamespace": "",
+    "references": [
+        "Package.Runtime"
     ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
