@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Lando.Patterns.Transitions
+namespace Lando.Transitions
 {
     public class TransitionHandler
     {

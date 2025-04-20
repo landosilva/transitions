@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Lando.Patterns.Transitions
+namespace Lando.Transitions
 {
     public static class Transition
     {

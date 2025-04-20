@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-namespace Lando.Patterns.Transitions
+namespace Lando.Transitions
 {
     [Serializable]
     public class CanvasGroupFadeTransitionView : TransitionViewMonoBehaviour

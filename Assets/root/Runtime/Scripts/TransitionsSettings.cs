@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-namespace Lando.Patterns.Transitions
+namespace Lando.Transitions
 {
     public class TransitionsSettings : ScriptableObject
     {

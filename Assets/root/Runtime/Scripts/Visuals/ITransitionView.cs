@@ -1,6 +1,6 @@
 using System.Collections;
 
-namespace Lando.Patterns.Transitions
+namespace Lando.Transitions
 {
     public interface ITransitionView
     {

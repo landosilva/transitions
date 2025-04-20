@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Lando.Patterns.Transitions
+namespace Lando.Transitions
 {
     public abstract class TransitionViewMonoBehaviour : MonoBehaviour, ITransitionView
     {

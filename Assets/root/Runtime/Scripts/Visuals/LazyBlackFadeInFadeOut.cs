@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
-namespace Lando.Patterns.Transitions
+namespace Lando.Transitions
 {
     [Serializable]
     public class LazyBlackFadeInFadeOut : ITransitionView
