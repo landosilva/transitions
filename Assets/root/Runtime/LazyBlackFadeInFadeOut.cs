@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
@@ -11,7 +10,6 @@ namespace Lando.Transitions
     public class LazyBlackFadeInFadeOut : ITransitionView
     {
         private static CanvasGroup _canvasGroup;
-        public CancellationToken CancellationToken => CancellationToken.None;
 
         public CanvasGroup GetCanvasGroup()
         {

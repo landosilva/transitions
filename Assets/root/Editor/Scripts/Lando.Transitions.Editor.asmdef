@@ -2,9 +2,11 @@
     "name": "Lando.Transitions.Editor",
     "rootNamespace": "",
     "references": [
-        "Package.Runtime"
+        "GUID:29c9aa55e5683469280d94ab122cd6ef"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
