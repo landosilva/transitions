@@ -1,18 +1,17 @@
-using System.Threading;
-using System.Threading.Tasks;
+using System.Collections;
 
 namespace Lando.Patterns.Transitions
 {
     public class NoTransition : ITransitionView
     {
-        public async Task In(float duration, CancellationToken token)
+        public IEnumerator In(float duration)
         {
-            await Task.CompletedTask;
+            yield return null;
         }
 
-        public async Task Out(float duration, CancellationToken token)
+        public IEnumerator Out(float duration)
         {
-            await Task.CompletedTask;
+            yield return null;
         }
     }
 }

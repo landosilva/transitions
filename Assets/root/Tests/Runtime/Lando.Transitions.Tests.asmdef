@@ -1,5 +1,6 @@
 {
-    "name": "Package.Tests",
+    "name": "Lando.Transitions.Tests",
+    "rootNamespace": "",
     "references": [
         "UnityEngine.TestRunner",
         "Package.Runtime"

@@ -1,6 +1,5 @@
 using System;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Collections;
 using UnityEngine;
 
 namespace Lando.Patterns.Transitions
@@ -15,7 +14,7 @@ namespace Lando.Patterns.Transitions
             _canvasGroup = GetComponentInChildren<CanvasGroup>();
         }
 
-        public override async Task In(float duration, CancellationToken token)
+        public override IEnumerator In(float duration)
         {
             _canvasGroup.alpha = 0;
             _canvasGroup.interactable = true;
@@ -28,30 +27,29 @@ namespace Lando.Patterns.Transitions
                 _canvasGroup.alpha = elapsedTime / duration;
                 elapsedTime += Time.deltaTime;
                 
-                await Task.Yield();
-                if (token.IsCancellationRequested) 
-                    return;
+                yield return null;
             }
+            
+            _canvasGroup.alpha = 1;
         }
-
-        public override async Task Out(float duration, CancellationToken token)
+        
+        public override IEnumerator Out(float duration)
         {
             _canvasGroup.alpha = 1;
+            _canvasGroup.interactable = false;
+            _canvasGroup.blocksRaycasts = false;
             
             float elapsedTime = 0;
             
             while (elapsedTime < duration)
             {
-                _canvasGroup.alpha = 1 - elapsedTime / duration;
+                _canvasGroup.alpha = 1 - (elapsedTime / duration);
                 elapsedTime += Time.deltaTime;
                 
-                await Task.Yield();
-                if (token.IsCancellationRequested) 
-                    return;
+                yield return null;
             }
             
-            _canvasGroup.interactable = false;
-            _canvasGroup.blocksRaycasts = false;
+            _canvasGroup.alpha = 0;
         }
     }
 }

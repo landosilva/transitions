@@ -1,5 +1,4 @@
-using System.Threading;
-using System.Threading.Tasks;
+using System.Collections;
 using UnityEngine;
 
 namespace Lando.Patterns.Transitions
@@ -7,13 +6,13 @@ namespace Lando.Patterns.Transitions
     public abstract class TransitionViewMonoBehaviour : MonoBehaviour, ITransitionView
     {
         public abstract void Initialize();
-        public abstract Task In(float duration, CancellationToken token);
-        public abstract Task Out(float duration, CancellationToken token);
+        public abstract IEnumerator In(float duration);
+        public abstract IEnumerator Out(float duration);
 
         private void Awake()
         {
-            DontDestroyOnLoad(gameObject);
             Initialize();
+            DontDestroyOnLoad(gameObject);
         }
     }
 }

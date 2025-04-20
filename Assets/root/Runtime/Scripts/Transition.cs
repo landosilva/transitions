@@ -1,17 +1,33 @@
+using UnityEngine;
+
 namespace Lando.Patterns.Transitions
 {
     public static class Transition
     {
-        public static void To(string sceneName)
+        private class TransitionRunner : MonoBehaviour { }
+        private static TransitionRunner _runner;
+
+        public static TransitionHandler To(string sceneName)
         {
-            ITransitionView defaultView = TransitionsSettings.GetDefaultTransitionView();
-            To(sceneName, defaultView);
+            var defaultView = TransitionsSettings.GetDefaultTransitionView();
+            return To(sceneName, defaultView);
+        }
+        
+        public static TransitionHandler To(string sceneName, ITransitionView transitionView)
+        {
+            var handler = new TransitionHandler(transitionView);
+            GetRunner().StartCoroutine(handler.StartTransition(sceneName));
+            return handler;
         }
 
-        public static void To(string sceneName, ITransitionView transitionView)
+        private static TransitionRunner GetRunner()
         {
-            TransitionHandler transitionHandler = new TransitionHandler(transitionView);
-            _ = transitionHandler.StartTransition(sceneName);
+            if (_runner != null) 
+                return _runner;
+            GameObject transitionRunner = new GameObject(name: "TransitionRunner");
+            Object.DontDestroyOnLoad(transitionRunner);
+            _runner = transitionRunner.AddComponent<TransitionRunner>();
+            return _runner;
         }
     }
 }

@@ -1,6 +1,6 @@
 using System;
+using System.Collections;
 using System.Threading;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
@@ -11,6 +11,7 @@ namespace Lando.Patterns.Transitions
     public class LazyBlackFadeInFadeOut : ITransitionView
     {
         private static CanvasGroup _canvasGroup;
+        public CancellationToken CancellationToken => CancellationToken.None;
 
         public CanvasGroup GetCanvasGroup()
         {
@@ -41,7 +42,7 @@ namespace Lando.Patterns.Transitions
             return _canvasGroup;
         }
 
-        public async Task In(float duration, CancellationToken token)
+        public IEnumerator In(float duration)
         {
             CanvasGroup canvasGroup = GetCanvasGroup();
             
@@ -56,13 +57,13 @@ namespace Lando.Patterns.Transitions
                 canvasGroup.alpha = elapsedTime / duration;
                 elapsedTime += Time.deltaTime;
                 
-                await Task.Yield();
-                if (token.IsCancellationRequested) 
-                    return;
+                yield return null;
             }
+            
+            canvasGroup.alpha = 1;
         }
 
-        public async Task Out(float duration, CancellationToken token)
+        public IEnumerator Out(float duration)
         {
             CanvasGroup canvasGroup = GetCanvasGroup();
             canvasGroup.alpha = 1;
@@ -73,11 +74,10 @@ namespace Lando.Patterns.Transitions
                 canvasGroup.alpha = 1 - elapsedTime / duration;
                 elapsedTime += Time.deltaTime;
                 
-                await Task.Yield();
-                if (token.IsCancellationRequested) 
-                    return;
+                yield return null;
             }
             
+            canvasGroup.alpha = 0;
             canvasGroup.interactable = false;
             canvasGroup.blocksRaycasts = false;
         }
