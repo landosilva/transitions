@@ -1,16 +1,19 @@
 {
-    "name": "com.github.your_name.package",
-    "displayName": "Package",
-    "author": {
-        "name": "Your_Name",
-        "url": "https://github.com/Your_Name"
-    },
+    "name": "com.lando.transitions",
+    "displayName": "Transitions",
+    "version": "0.0.1",
+    "unity": "2019.2",
+    "description": "Smooth transitions for Unity.",
+    "dependencies": {},
     "keywords": [
-        "keyword1",
-        "keyword2"
+      "lando",
+      "unity",
+      "transitions",
+      "scenes"
     ],
-    "version": "1.0.0",
-    "unity": "2019.4",
-    "description": "Some description",
-    "dependencies": {}
+    "author": {
+        "name": "Lando",
+        "email": "orlandobsilva@outlook.com",
+        "url": "https://github.com/landosilva/transitions"
+    }
 }
