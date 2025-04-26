@@ -4,7 +4,9 @@
     "version": "0.0.1",
     "unity": "2019.2",
     "description": "Smooth transitions for Unity.",
-    "dependencies": {},
+    "dependencies": {
+      "com.unity.ugui": "1.0.0"
+    },
     "keywords": [
       "lando",
       "unity",
