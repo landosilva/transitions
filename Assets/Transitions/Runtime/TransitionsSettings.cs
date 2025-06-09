@@ -10,12 +10,14 @@ namespace Lando.Transitions
 {
     public class TransitionsSettings : ScriptableObject
     {
-        private static TransitionsSettings _instance;
+        [field: SerializeField] public TransitionViewMonoBehaviour DefaultTransitionPrefab { get; private set; }
+        [SerializeField] private ScenePathClassGenerationSettings _scenePathClassGenerationSettings;
 
-        [field: SerializeField] public TransitionViewMonoBehaviour DefaultTransitionPrefab { get; set; }
-        
         [NonSerialized] private static ITransitionView _defaultTransition;
-
+        public static ScenePathClassGenerationSettings ScenePathClassGenerationSettings 
+            => Instance._scenePathClassGenerationSettings;
+        
+        private static TransitionsSettings _instance;
         private static TransitionsSettings Instance
         {
             get

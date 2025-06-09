@@ -1,3 +1,5 @@
+using Generated;
+using Lando.Transitions;
 using UnityEngine;
 
 public class NewMonoBehaviourScript : MonoBehaviour
