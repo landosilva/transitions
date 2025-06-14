@@ -13,3 +13,7 @@ MonoBehaviour:
   m_Name: TransitionsSettings
   m_EditorClassIdentifier: 
   <DefaultTransitionPrefab>k__BackingField: {fileID: -5952968754176600101, guid: df50ac26ac8724da69e3440d60573cf0, type: 3}
+  _scenePathClassGenerationSettings:
+    <Namespace>k__BackingField: Generated
+    <Path>k__BackingField: Assets/Scripts/Generated/
+    <ClassName>k__BackingField: ScenePath

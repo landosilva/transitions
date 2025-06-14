@@ -8,5 +8,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Playground/New Scene.unity
     guid: b9f403d95426a4ea9b5811e72982443e
+  - enabled: 1
+    path: Assets/Playground/New Scene 1.unity
+    guid: 32bfa3f42f69b4f92ad491253a0d7f7f
+  - enabled: 1
+    path: Assets/Playground/New Scene 2.unity
+    guid: dcb6c2aace7d844c1a0d57471f0b7526
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
