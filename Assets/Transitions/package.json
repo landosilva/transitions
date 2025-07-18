@@ -1,7 +1,7 @@
 {
-    "name": "com.lando.transitions",
+    "name": "landosilva.transitions",
     "displayName": "Transitions",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "unity": "2019.2",
     "description": "Smooth transitions for Unity.",
     "dependencies": {
@@ -9,12 +9,14 @@
     },
     "keywords": [
       "lando",
+      "silva",
+      "lando silva",
       "unity",
       "transitions",
       "scenes"
     ],
     "author": {
-        "name": "Lando",
+        "name": "Lando Silva",
         "email": "orlandobsilva@outlook.com",
         "url": "https://github.com/landosilva/transitions"
     }
