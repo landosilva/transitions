@@ -9,6 +9,7 @@ namespace Lando.Transitions
     {
 #if UNITY_EDITOR
         private const string PREF_DEFAULT_TRANSITION_GUID = "Transitions.DefaultTransitionGuid";
+        private const string DEFAULT_BLACK_FADE_GUID = "df50ac26ac8724da69e3440d60573cf0";
         private const string PREF_NAMESPACE = "Transitions.ScenePathNamespace";
         private const string PREF_PATH = "Transitions.ScenePathPath";
         private const string PREF_CLASSNAME = "Transitions.ScenePathClassName";
@@ -38,7 +39,7 @@ namespace Lando.Transitions
         private static ITransitionView CreateDefaultTransition()
         {
 #if UNITY_EDITOR
-            string guid = EditorPrefs.GetString(PREF_DEFAULT_TRANSITION_GUID, string.Empty);
+            string guid = EditorPrefs.GetString(PREF_DEFAULT_TRANSITION_GUID, DEFAULT_BLACK_FADE_GUID);
             if (!string.IsNullOrEmpty(guid))
             {
                 string path = AssetDatabase.GUIDToAssetPath(guid);

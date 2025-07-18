@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Lando.Attributes
+namespace Lando.Transitions
 {
     public class SceneAttribute : PropertyAttribute
     {
