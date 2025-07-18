@@ -21,7 +21,7 @@ namespace Lando.Transitions.Editor
         private const float DOUBLE_CLICK_TIME = 0.3f;
         private const float ICON_SIZE = 20f;
 
-        [MenuItem("Tools/Lando/Transitions/Build Scenes Viewer")]
+        [MenuItem("Tools/Transitions/Build Scenes Viewer")]
         public static void ShowWindow()
         {
             GetWindow<BuildScenesWindow>(title: "Build Scenes");

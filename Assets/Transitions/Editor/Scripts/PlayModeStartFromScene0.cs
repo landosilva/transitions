@@ -9,7 +9,7 @@ namespace Transitions.Editor
     [InitializeOnLoad]
     public static class PlayFromFirstScene
     {
-        private const string MENU_PATH = "Tools/Lando/Transitions/Play From First Scene";
+        private const string MENU_PATH = "Tools/Transitions/Play From First Scene";
         private const string PREF_KEY = "PlayFromFirstScene_Enabled";
         private const string SAVED_SCENE_KEY = "PlayFromFirstScene_LastScene";
         private const string PREFAB_PATH_KEY = "PlayFromFirstScene_PrefabPath";
