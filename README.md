@@ -1,4 +1,4 @@
-# 🎬 Transitions (WIP)
+# Transitions (WIP) 🎬
 
 **Transitions** is a Unity tool that provides a framework for creating smooth and customizable scene transitions. It enhances user experience by allowing developers to implement various transition effects between scenes with ease.
 
