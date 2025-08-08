@@ -6,17 +6,19 @@ namespace Lando.Transitions
     {
         private class TransitionRunner : MonoBehaviour { }
         private static TransitionRunner _runner;
+        
+        private static ITransitionView _defaultView;
 
         public static TransitionHandler To(string sceneName)
         {
-            var defaultView = TransitionsSettings.GetDefaultTransitionView();
-            return To(sceneName, defaultView);
+            _defaultView ??= new LazyBlackFadeInFadeOut();
+            return To(sceneName, _defaultView);
         }
-        
+
         public static TransitionHandler To(string sceneName, ITransitionView transitionView)
         {
-            var handler = new TransitionHandler(transitionView);
-            GetRunner().StartCoroutine(handler.StartTransition(sceneName));
+            TransitionHandler handler = new(transitionView);
+            GetRunner().StartCoroutine(handler.StartTransitionRoutine(sceneName));
             return handler;
         }
 
@@ -24,7 +26,7 @@ namespace Lando.Transitions
         {
             if (_runner != null) 
                 return _runner;
-            GameObject transitionRunner = new GameObject(name: "TransitionRunner");
+            GameObject transitionRunner = new(name: "TransitionRunner");
             Object.DontDestroyOnLoad(transitionRunner);
             _runner = transitionRunner.AddComponent<TransitionRunner>();
             return _runner;

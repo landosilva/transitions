@@ -9,20 +9,25 @@ namespace Lando.Transitions
     [Serializable]
     public class LazyBlackFadeInFadeOut : ITransitionView
     {
-        private static CanvasGroup _canvasGroup;
+        const int MAX_SORTING_ORDER = 32767;
+        private CanvasGroupFadeTransitionView _view;
 
-        public CanvasGroup GetCanvasGroup()
+        public CanvasGroupFadeTransitionView GetOrCreateView()
         {
-            if(_canvasGroup != null)
-                return _canvasGroup;
+            if (_view != null) 
+                return _view;
             
-            GameObject canvasObject = new GameObject(name: "Canvas");
-            Object.DontDestroyOnLoad(canvasObject);
+            GameObject viewObject = new(name: "BlackFade");
+            Object.DontDestroyOnLoad(viewObject);
+            
+            GameObject canvasObject = new(name: "Canvas");
+            canvasObject.transform.SetParent(viewObject.transform);
                 
             Canvas canvas = canvasObject.AddComponent<Canvas>();
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            canvas.sortingOrder = MAX_SORTING_ORDER;
                 
-            GameObject imageObject = new GameObject(name: "Image");
+            GameObject imageObject = new(name: "Image");
             Image image = imageObject.AddComponent<Image>();
             image.color = Color.black;
             image.transform.SetParent(canvasObject.transform);
@@ -36,48 +41,20 @@ namespace Lando.Transitions
             canvasGroup.interactable = false;
             canvasGroup.blocksRaycasts = false;
             
-            _canvasGroup = canvasGroup;
-            return _canvasGroup;
+            _view = viewObject.AddComponent<CanvasGroupFadeTransitionView>();
+            return _view;
         }
 
         public IEnumerator In(float duration)
         {
-            CanvasGroup canvasGroup = GetCanvasGroup();
-            
-            canvasGroup.alpha = 0;
-            canvasGroup.interactable = true;
-            canvasGroup.blocksRaycasts = true;
-            
-            float elapsedTime = 0;
-            
-            while (elapsedTime < duration)
-            {
-                canvasGroup.alpha = elapsedTime / duration;
-                elapsedTime += Time.deltaTime;
-                
-                yield return null;
-            }
-            
-            canvasGroup.alpha = 1;
+            CanvasGroupFadeTransitionView view = GetOrCreateView();
+            yield return view.In(duration);
         }
 
         public IEnumerator Out(float duration)
         {
-            CanvasGroup canvasGroup = GetCanvasGroup();
-            canvasGroup.alpha = 1;
-            
-            float elapsedTime = 0;
-            while (elapsedTime < duration)
-            {
-                canvasGroup.alpha = 1 - elapsedTime / duration;
-                elapsedTime += Time.deltaTime;
-                
-                yield return null;
-            }
-            
-            canvasGroup.alpha = 0;
-            canvasGroup.interactable = false;
-            canvasGroup.blocksRaycasts = false;
+            CanvasGroupFadeTransitionView view = GetOrCreateView();
+            yield return view.Out(duration);
         }
     }
 }

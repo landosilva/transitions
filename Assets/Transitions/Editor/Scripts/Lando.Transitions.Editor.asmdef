@@ -1,6 +1,6 @@
 {
     "name": "Lando.Transitions.Editor",
-    "rootNamespace": "",
+    "rootNamespace": "Lando",
     "references": [
         "GUID:29c9aa55e5683469280d94ab122cd6ef"
     ],

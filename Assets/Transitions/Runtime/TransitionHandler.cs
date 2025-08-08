@@ -17,7 +17,7 @@ namespace Lando.Transitions
             _transitionView = transitionView;
         }
 
-        public IEnumerator StartTransition(string sceneName)
+        public IEnumerator StartTransitionRoutine(string sceneName)
         {
             yield return _transitionView.In(_inDuration);
             

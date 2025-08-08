@@ -1,6 +1,6 @@
 {
     "name": "Lando.Transitions",
-    "rootNamespace": "",
+    "rootNamespace": "Lando",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -21,7 +21,7 @@ namespace Lando.Transitions.Editor
         private const float DOUBLE_CLICK_TIME = 0.3f;
         private const float ICON_SIZE = 20f;
 
-        [MenuItem("Tools/Transitions/Build Scenes Viewer")]
+        [MenuItem("Tools/Transitions/Build Scenes Viewer", priority = 2)]
         public static void ShowWindow()
         {
             GetWindow<BuildScenesWindow>(title: "Build Scenes");
@@ -98,11 +98,11 @@ namespace Lando.Transitions.Editor
             if (!GUILayout.Button(text: "Generate Scenes Class", options: GUILayout.Height(22f))) 
                 return;
             
-            string directory = TransitionsSettings.ScenePathClassGenerationSettings.Path;
+            string directory = global::Lando.Transitions.Editor.TransitionsSettings.ScenePathClassGenerationSettings.Path;
             if(!Directory.Exists(directory))
                 Directory.CreateDirectory(directory);
             
-            GenerateScenesClass(TransitionsSettings.ScenePathClassGenerationSettings.FullPath);
+            GenerateScenesClass(global::Lando.Transitions.Editor.TransitionsSettings.ScenePathClassGenerationSettings.FullPath);
         }
         
         private void GenerateScenesClass(string classPath)

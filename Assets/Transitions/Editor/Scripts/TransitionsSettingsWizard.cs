@@ -15,7 +15,7 @@ namespace Lando.Transitions.Editor
         public string scenePathPath = "Assets/Scripts/Generated/";
         public string scenePathClassName = "ScenePath";
 
-        [MenuItem("Tools/Transitions/Settings")]
+        [MenuItem("Tools/Transitions/Settings", priority = 1)]
         private static void Open()
         {
             DisplayWizard<TransitionsSettingsWizard>("Transitions Settings", "Save");

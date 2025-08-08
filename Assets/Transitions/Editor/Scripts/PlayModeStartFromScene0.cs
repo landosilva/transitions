@@ -4,7 +4,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 
-namespace Transitions.Editor
+namespace Lando.Transitions.Editor
 {
     [InitializeOnLoad]
     public static class PlayFromFirstScene
@@ -26,13 +26,6 @@ namespace Transitions.Editor
             bool enabled = !EditorPrefs.GetBool(PREF_KEY, false);
             EditorPrefs.SetBool(PREF_KEY, enabled);
             Menu.SetChecked(MENU_PATH, enabled);
-        }
-
-        [MenuItem(MENU_PATH, isValidateFunction: true)]
-        private static bool ToggleMenuValidate()
-        {
-            Menu.SetChecked(MENU_PATH, isChecked: EditorPrefs.GetBool(PREF_KEY, false));
-            return true;
         }
 
         private static void OnPlayModeStateChanged(PlayModeStateChange state)
