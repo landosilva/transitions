@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// ReSharper disable MemberCanBePrivate.Global
+
 namespace Lando.Transitions
 {
     public static class Transition
