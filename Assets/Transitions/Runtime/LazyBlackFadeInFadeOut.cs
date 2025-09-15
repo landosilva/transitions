@@ -9,7 +9,6 @@ namespace Lando.Transitions
     [Serializable]
     public class LazyBlackFadeInFadeOut : ITransitionView
     {
-        const int MAX_SORTING_ORDER = 32767;
         private CanvasGroupFadeTransitionView _view;
 
         public CanvasGroupFadeTransitionView GetOrCreateView()
@@ -25,7 +24,7 @@ namespace Lando.Transitions
                 
             Canvas canvas = canvasObject.AddComponent<Canvas>();
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-            canvas.sortingOrder = MAX_SORTING_ORDER;
+            canvas.sortingOrder = 1001;
                 
             GameObject imageObject = new(name: "Image");
             Image image = imageObject.AddComponent<Image>();
